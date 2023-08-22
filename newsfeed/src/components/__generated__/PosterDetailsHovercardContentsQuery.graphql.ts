@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<42003b0ddb424dee5500be014fb4eafb>>
+ * @generated SignedSource<<b5a07c915e984ba3e3e94adc33a66f88>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -10,7 +10,9 @@
 
 import { ConcreteRequest, Query } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
-export type PosterDetailsHovercardContentsQuery$variables = {};
+export type PosterDetailsHovercardContentsQuery$variables = {
+  posterId: string;
+};
 export type PosterDetailsHovercardContentsQuery$data = {
   readonly node: {
     readonly " $fragmentSpreads": FragmentRefs<"PosterDetailsHovercardContentsBodyFragment">;
@@ -24,21 +26,28 @@ export type PosterDetailsHovercardContentsQuery = {
 const node: ConcreteRequest = (function(){
 var v0 = [
   {
-    "kind": "Literal",
+    "defaultValue": null,
+    "kind": "LocalArgument",
+    "name": "posterId"
+  }
+],
+v1 = [
+  {
+    "kind": "Variable",
     "name": "id",
-    "value": "7"
+    "variableName": "posterId"
   }
 ];
 return {
   "fragment": {
-    "argumentDefinitions": [],
+    "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
     "name": "PosterDetailsHovercardContentsQuery",
     "selections": [
       {
         "alias": null,
-        "args": (v0/*: any*/),
+        "args": (v1/*: any*/),
         "concreteType": null,
         "kind": "LinkedField",
         "name": "node",
@@ -57,7 +66,7 @@ return {
             "abstractKey": "__isActor"
           }
         ],
-        "storageKey": "node(id:\"7\")"
+        "storageKey": null
       }
     ],
     "type": "Query",
@@ -65,13 +74,13 @@ return {
   },
   "kind": "Request",
   "operation": {
-    "argumentDefinitions": [],
+    "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
     "name": "PosterDetailsHovercardContentsQuery",
     "selections": [
       {
         "alias": null,
-        "args": (v0/*: any*/),
+        "args": (v1/*: any*/),
         "concreteType": null,
         "kind": "LinkedField",
         "name": "node",
@@ -138,21 +147,21 @@ return {
             "abstractKey": "__isActor"
           }
         ],
-        "storageKey": "node(id:\"7\")"
+        "storageKey": null
       }
     ]
   },
   "params": {
-    "cacheID": "60ecc2a435b5250ebfa3429259bd9555",
+    "cacheID": "26937778699c536bdc2d030fea30ea9b",
     "id": null,
     "metadata": {},
     "name": "PosterDetailsHovercardContentsQuery",
     "operationKind": "query",
-    "text": "query PosterDetailsHovercardContentsQuery {\n  node(id: \"7\") {\n    __typename\n    ... on Actor {\n      __isActor: __typename\n      ...PosterDetailsHovercardContentsBodyFragment\n    }\n    id\n  }\n}\n\nfragment ImageFragment on Image {\n  url\n  altText\n}\n\nfragment PosterDetailsHovercardContentsBodyFragment on Actor {\n  __isActor: __typename\n  id\n  name\n  joined\n  profilePicture {\n    ...ImageFragment\n  }\n}\n"
+    "text": "query PosterDetailsHovercardContentsQuery(\n  $posterId: ID!\n) {\n  node(id: $posterId) {\n    __typename\n    ... on Actor {\n      __isActor: __typename\n      ...PosterDetailsHovercardContentsBodyFragment\n    }\n    id\n  }\n}\n\nfragment ImageFragment on Image {\n  url\n  altText\n}\n\nfragment PosterDetailsHovercardContentsBodyFragment on Actor {\n  __isActor: __typename\n  id\n  name\n  joined\n  profilePicture {\n    ...ImageFragment\n  }\n}\n"
   }
 };
 })();
 
-(node as any).hash = "b364cc37fc258ebda3e5848d42edf9e6";
+(node as any).hash = "adee05eada67a2bf908bcbf606d15664";
 
 export default node;
