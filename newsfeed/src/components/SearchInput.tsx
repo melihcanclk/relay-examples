@@ -13,6 +13,7 @@ export default function SearchInput({ value, onChange, isPending }: Props) {
     <div className="searchInput">
       <input
         value={value}
+        autoFocus
         onChange={(e) => onChange(e.target.value)}
         placeholder="Search..."
       />
